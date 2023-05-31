@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .fade-in-text {
+        opacity: 0;
+        animation: fade-in 2s ease-in-out forwards;
+      }
+
+      @keyframes fade-in {
+        0% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      @keyframes fade-in-last {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
+    <script>
+      // JavaScript to control the fading effect
+      document.addEventListener("DOMContentLoaded", function (event) {
+        var fadeTextElements = document.getElementsByClassName("fade-in-text");
+        var delays = [0, 6, 18, 25]; // Set the delays (in seconds) for each line
+        var durations = [7, 13, 8, 7]; // Set the durations (in seconds) for each line
+
+        for (var i = 0; i < fadeTextElements.length; i++) {
+          fadeTextElements[i].style.animationDelay =
+            delays[i % delays.length] + "s";
+          fadeTextElements[i].style.animationDuration =
+            durations[i % durations.length] + "s";
+
+          if (i === fadeTextElements.length - 1) {
+            fadeTextElements[i].style.animationName = "fade-in-last";
+          }
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div id="first" class="fade-in-text">Welcome</div>
+    <div id="second" class="fade-in-text">
+      The following is a series of poems derived from Google reviews of Tram
+      stops
+    </div>
+    <div id="third" class="fade-in-text">
+      No text has been added, embellished or spell-checked
+    </div>
+    <div id="fourth" class="fade-in-text">
+      <a href="tram-poems/index.html">Enter here</a>
+    </div>
+  </body>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-size: 55px;
+      text-align: center;
+      margin-top: 200px;
+    }
+
+    a {
+      color: #fceac2;
+    }
+  </style>
+</html>
